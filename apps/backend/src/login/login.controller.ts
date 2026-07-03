@@ -1,9 +1,8 @@
 import { Body, Controller, Get, NotFoundException, Param, Patch, Post } from '@nestjs/common';
 import { LoginService } from './login.service';
-import type { User } from './login.service';
-import { LoginDto } from './dto/login.dto';
-import { RegisterDto } from './dto/register.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import type { User } from '../users';
+import { LoginDto } from '../DTOs/login.dto';
+import { UpdateUserDto } from '../DTOs/update-user.dto';
 
 @Controller('login')
 export class LoginController {
@@ -23,10 +22,7 @@ export class LoginController {
         return user;
     }
 
-    @Post('register')
-    register(@Body() registerDto: RegisterDto): User {
-        return this.loginService.createUser(registerDto);
-    }
+
 
     @Patch(':id')
     updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto): User {
