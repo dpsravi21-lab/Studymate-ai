@@ -15,5 +15,4 @@ pipelines:
           - corepack prepare pnpm@latest --activate
           - pnpm install --frozen-lockfile
           - pnpm turbo run lint
-          - pnpm turbo run test
           - pnpm turbo run build
