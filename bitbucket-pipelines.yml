@@ -11,14 +11,9 @@ pipelines:
         caches:
           - pnpm
         script:
-          # Enable and prepare pnpm
           - corepack enable
           - corepack prepare pnpm@latest --activate
-          
-          # Install dependencies
           - pnpm install --frozen-lockfile
-          
-          # Run Turborepo tasks
           - pnpm turbo run lint
           - pnpm turbo run test
           - pnpm turbo run build
