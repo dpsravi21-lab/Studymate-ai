@@ -7,25 +7,18 @@ definitions:
 pipelines:
   default:
     - step:
-        name: Install Dependencies
+        name: Install, Validate & Build
         caches:
           - pnpm
         script:
+          # Enable and prepare pnpm
           - corepack enable
           - corepack prepare pnpm@latest --activate
+          
+          # Install dependencies
           - pnpm install --frozen-lockfile
-
-    - step:
-        name: Lint
-        script:
-          - pnpm nx lint
-
-    - step:
-        name: Test
-        script:
-          - pnpm nx test
-
-    - step:
-        name: Build
-        script:
-          - pnpm nx build
+          
+          # Run Turborepo tasks
+          - pnpm turbo run lint
+          - pnpm turbo run test
+          - pnpm turbo run build
