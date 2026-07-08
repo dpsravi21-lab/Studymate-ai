@@ -1,24 +1,49 @@
-import { Injectable } from '@nestjs/common';
-import users, { type User } from '../users';
+import {
+  ConflictException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import * as bcrypt from 'bcryptjs';
+
+import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto } from '../DTOs/register.dto';
 
 @Injectable()
 export class RegisterService {
-    private users: User[] = users;
+  constructor(private readonly prisma: PrismaService) { }
 
-    createUser(user: RegisterDto): User {
-        const newUser: User = {
-            ...user,
-            id: this.generateRandomId(),
-        };
+  async createUser(registerDto: RegisterDto) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: {
+        email: registerDto.email,
+      },
+    });
 
-        this.users.push(newUser);
-        return newUser;
+    if (existingUser) {
+      throw new ConflictException('Email already exists');
     }
 
-    private generateRandomId(): string {
-        return Array.from({ length: 12 }, () =>
-            Math.random().toString(36).charAt(2),
-        ).join('');
+    try {
+      const hashedPassword = await bcrypt.hash(registerDto.password, 10);
+
+      const user = await this.prisma.user.create({
+        data: {
+          name: registerDto.name,
+          email: registerDto.email,
+          password: hashedPassword,
+
+          class: registerDto.class,
+          province: registerDto.province,
+
+          schoolStatus: registerDto.schoolStatus,
+          subjects: registerDto.subjects,
+        },
+      });
+
+      const { password: _password, ...safeUser } = user;
+      return safeUser;
+    } catch (error) {
+      throw new InternalServerErrorException('Unable to create user account');
     }
+  }
 }

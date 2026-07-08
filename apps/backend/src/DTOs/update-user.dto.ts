@@ -4,6 +4,6 @@ export class UpdateUserDto {
     password?: string;
     class?: number;
     province?: string;
-    SchoolStatus?: string;
-    Subjects?: string[];
+    schoolStatus?: string;
+    subjects?: string[];
 }

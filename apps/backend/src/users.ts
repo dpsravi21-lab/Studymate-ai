@@ -5,8 +5,8 @@ export interface User {
     password: string;
     class: number;
     province: string;
-    SchoolStatus: string;
-    Subjects: string[];
+    schoolStatus: string;
+    subjects: string[];
 }
 
 const users: User[] = [
@@ -17,8 +17,8 @@ const users: User[] = [
         password: 'password123',
         class: 10,
         province: 'Punjab',
-        SchoolStatus: 'Private',
-        Subjects: ['Mathematics', 'English', 'Biology'],
+        schoolStatus: 'Private',
+        subjects: ['Mathematics', 'English', 'Biology'],
     },
     {
         id: 'm8d3fzqk2p7t',
@@ -27,8 +27,8 @@ const users: User[] = [
         password: 'dkpass456',
         class: 11,
         province: 'Sindh',
-        SchoolStatus: 'Public',
-        Subjects: ['Physics', 'Chemistry', 'History'],
+        schoolStatus: 'Public',
+        subjects: ['Physics', 'Chemistry', 'History'],
     },
     {
         id: 'x4v1sht9nq0b',
@@ -37,8 +37,8 @@ const users: User[] = [
         password: 'sara789',
         class: 9,
         province: 'Khyber Pakhtunkhwa',
-        SchoolStatus: 'Private',
-        Subjects: ['Mathematics', 'Geography', 'English'],
+        schoolStatus: 'Private',
+        subjects: ['Mathematics', 'Geography', 'English'],
     },
     {
         id: 'k5g8uyn3zv6r',
@@ -47,8 +47,8 @@ const users: User[] = [
         password: 'mike2024',
         class: 12,
         province: 'Punjab',
-        SchoolStatus: 'Public',
-        Subjects: ['Economics', 'Computer', 'Physics'],
+        schoolStatus: 'Public',
+        subjects: ['Economics', 'Computer', 'Physics'],
     },
     {
         id: 'b1r7qwe6hya4',
@@ -57,8 +57,8 @@ const users: User[] = [
         password: 'lina321',
         class: 10,
         province: 'Balochistan',
-        SchoolStatus: 'Private',
-        Subjects: ['Biology', 'Mathematics', 'History'],
+        schoolStatus: 'Private',
+        subjects: ['Biology', 'Mathematics', 'History'],
     },
     {
         id: 'c9h4zuj2p8xq',
@@ -67,8 +67,8 @@ const users: User[] = [
         password: 'joshua789',
         class: 11,
         province: 'Punjab',
-        SchoolStatus: 'Private',
-        Subjects: ['Chemistry', 'English', 'Art'],
+        schoolStatus: 'Private',
+        subjects: ['Chemistry', 'English', 'Art'],
     },
     {
         id: 't7n6wkc1xrz5',
@@ -77,8 +77,8 @@ const users: User[] = [
         password: 'fatima456',
         class: 9,
         province: 'Sindh',
-        SchoolStatus: 'Public',
-        Subjects: ['Mathematics', 'Physics', 'French'],
+        schoolStatus: 'Public',
+        subjects: ['Mathematics', 'Physics', 'French'],
     },
     {
         id: 's8q1fdz5yvn3',
@@ -87,8 +87,8 @@ const users: User[] = [
         password: 'emmanuel123',
         class: 12,
         province: 'Punjab',
-        SchoolStatus: 'Private',
-        Subjects: ['Biology', 'Geography', 'Mathematics'],
+        schoolStatus: 'Private',
+        subjects: ['Biology', 'Geography', 'Mathematics'],
     },
     {
         id: 'n2w9pkr4sxt6',
@@ -97,8 +97,8 @@ const users: User[] = [
         password: 'nadia2024',
         class: 10,
         province: 'Sindh',
-        SchoolStatus: 'Public',
-        Subjects: ['English', 'History', 'Computer'],
+        schoolStatus: 'Public',
+        subjects: ['English', 'History', 'Computer'],
     },
     {
         id: 'p3y7xjm8qsz4',
@@ -107,8 +107,8 @@ const users: User[] = [
         password: 'peter456',
         class: 11,
         province: 'Punjab',
-        SchoolStatus: 'Private',
-        Subjects: ['Physics', 'Chemistry', 'Mathematics'],
+        schoolStatus: 'Private',
+        subjects: ['Physics', 'Chemistry', 'Mathematics'],
     },
 ];
 
